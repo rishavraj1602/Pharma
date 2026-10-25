@@ -1,18 +1,25 @@
 # PharmaScope Dashboard
 
-React + Vite dashboard built from `indian_pharmaceutical_products_clean.csv` (inside `archive.zip`), styled after the SCM Pro mockup.
+A React and Vite dashboard for exploring a large Indian pharmaceutical medicines dataset sourced from Kaggle. It presents product, manufacturer, pricing, dosage-form, therapeutic-class, and active-ingredient data in interactive charts and KPI cards. You can filter the dashboard by therapeutic class and search the product catalog.
 
-## Setup
+**Live dashboard:** [pharma-dashboard1.netlify.app](https://pharma-dashboard1.netlify.app/)
+
+## Run locally
 
 ```bash
 npm install
-# Unzip archive.zip, then build the dashboard data from the CSV:
-npm run data -- "<path>/indian_pharmaceutical_products_clean.csv"
 npm run dev
 ```
 
-`npm run data` writes `public/data/summary.json` (pre-computed aggregates, ~32 KB) and
-`public/data/products.json` (search index, ~11 MB, only loaded when you search).
+Open the local URL printed by Vite (usually `http://localhost:5173/`) in your browser. The repository includes the generated dashboard data, so you can run the app without the original CSV.
+
+To regenerate the dashboard data, provide the source CSV (`indian_pharmaceutical_products_clean.csv`, originally distributed inside `archive.zip`):
+
+```bash
+npm run data -- "<path>/indian_pharmaceutical_products_clean.csv"
+```
+
+This writes `public/data/summary.json` (pre-computed aggregates) and `public/data/products.json` (the product search index, loaded when you search).
 
 ## What each panel shows
 
